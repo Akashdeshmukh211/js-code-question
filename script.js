@@ -1,3 +1,4 @@
+"use strict";
 console.log("hello world");
 // 1. Given a string, reverse each word in ths sentence
 
@@ -160,79 +161,259 @@ let person = [
   }
 ];
 
-let newperson = person.filter((e)=>{
-    if(e.gender === "male"){
-        return e
-    }
-})
-console.log(newperson)
+let newperson = person.filter(e => {
+  if (e.gender === "male") {
+    return e;
+  }
+});
+console.log(newperson);
 
 // 15. Write a js function to clone an array
 
 function cloneArray(arr) {
-    return [...arr]
+  return [...arr];
 }
 
-console.log(cloneArray([1,2,3,4,5]))
+console.log(cloneArray([1, 2, 3, 4, 5]));
 
 // 16. Write a js function to get the first element of an array.
 // passing a parameter 'n' will return the first 'n' element of the array
 
-function retrive(arr = [], n= 1){
-    if(n <= arr.length){
-        for(let i = 0; i < n; i++){
-            console.log(arr[i])
-        }
+function retrive(arr = [], n = 1) {
+  if (n <= arr.length) {
+    for (let i = 0; i < n; i++) {
+      console.log(arr[i]);
     }
+  }
 }
 
-retrive([1,2,4,5],3)
+retrive([1, 2, 4, 5], 3);
 // 16. Write a js function to get the last element of an array.
 // passing a parameter 'n' will return the last 'n' element of the array
-function retriveLast(arr = [], n= 1){
-    if(n <= arr.length){
-        for(let i = 0; i < n; i++){
-            console.log(arr[arr.length - 1 - i])
-        }
+function retriveLast(arr = [], n = 1) {
+  if (n <= arr.length) {
+    for (let i = 0; i < n; i++) {
+      console.log(arr[arr.length - 1 - i]);
     }
+  }
 }
 
-retriveLast([1,2,4,5],3)
+retriveLast([1, 2, 4, 5], 3);
 
-
-// Write a js program to find the most frequent item of an array
+// 17 Write a js program to find the most frequent item of an array
 
 function frequency(arr) {
-    var freq = {}
-    arr.forEach((elem)=>{
-        if(freq.hasOwnProperty(elem)){
-            freq[elem]++
-        }else{
-            freq[elem] = 1
-        }
-    })
-    var ans = Object.keys(freq).reduce((acc, next)=>{
-        return freq[acc] > freq[next] ? acc : next;
-    })
-    return ans
+  var freq = {};
+  arr.forEach(elem => {
+    if (freq.hasOwnProperty(elem)) {
+      freq[elem]++;
+    } else {
+      freq[elem] = 1;
+    }
+  });
+  var ans = Object.keys(freq).reduce((acc, next) => {
+    return freq[acc] > freq[next] ? acc : next;
+  });
+  return ans;
 }
 
-console.log(frequency([2,3,45,3,4,5,3,2,2,2]))
+console.log(frequency([2, 3, 45, 3, 4, 5, 3, 2, 2, 2]));
 
+// 18 write a js program to suffle an array
 
-// write a js program to suffle an array
-
-function shuffle(arr){
-  var totalShuffleArea =  arr.length;
-  while(totalShuffleArea > 0){
+function shuffle(arr) {
+  var totalShuffleArea = arr.length;
+  while (totalShuffleArea > 0) {
     totalShuffleArea--;
-    var index = Math.floor(Math.random() * totalShuffleArea)
-    var temp = arr[totalShuffleArea]
-    arr[totalShuffleArea] = arr[index]
+    var index = Math.floor(Math.random() * totalShuffleArea);
+    var temp = arr[totalShuffleArea];
+    arr[totalShuffleArea] = arr[index];
     arr[index] = temp;
   }
   return arr;
-
 }
 
 // console.log(shuffle([2,1,3,5]))
+
+// 19 How do you verify two strings are anagrams?
+
+function anagramsFunction(a, b) {
+  console.log(a.split("").sort().join(""));
+  console.log(b.split("").sort().join(""));
+  return a.split("").sort().join("") === b.split("").sort().join("");
+}
+console.log(anagramsFunction("tea", "eat"));
+
+// 78. What is the output of below code?
+try {
+  setTimeout(() => {
+    console.log("try block");
+    //   throw new Error(`An exception is thrown`);
+  }, 1000);
+} catch (err) {
+  console.log("Error: ", err);
+}
+
+const a = new Number(10);
+const b = 10;
+console.log(a === b);
+
+let obj1 = {};
+let obj2 = {};
+console.log(obj1 === obj2);
+
+console.log(+true);
+
+const bird = {
+  size: "small"
+};
+
+const mouse = {
+  name: "Mickey",
+  small: true
+};
+
+//   console.log(mouse.bird.size,"asdf")
+console.log(mouse[bird.size]);
+console.log(mouse[bird["size"]]);
+
+let greeting;
+greeting = {};
+console.log(greeting);
+
+function bark() {
+  console.log("Woof!");
+}
+
+console.log((bark.animal = "dog"));
+
+let newP = new Promise((res, rej) => {
+  let rand = Math.floor(Math.random() * 10);
+  if (rand < 5) {
+    res("Promiess fullfiled");
+  } else {
+    rej("Promiss Not fullfiled");
+  }
+});
+console.log(newP);
+
+console.log({ ...bird, ...mouse });
+
+// create object using class
+
+class Person {
+  constructor(name, email) {
+    (this.name = name), (this.email = email);
+  }
+
+  greet() {
+    return this.name;
+  }
+}
+
+let objnew = new Person("akash", "test@gmail.com");
+console.log(objnew.greet());
+
+function createObject(name, email) {
+  return {
+    name: name,
+    email: email,
+    greet: function() {
+      return this.name;
+    }
+  };
+}
+let funobj = createObject("akash", "test@gmail.com");
+console.log(funobj.greet());
+
+let newObj = Object.create({
+  name: "akash"
+});
+
+//Object shallocopy and deep copy
+
+let shallocopy = {
+  name: "akash",
+  age: 28,
+  key3: {
+    key: "asdf"
+  }
+};
+let copy = { ...shallocopy };
+
+copy.key3.key = "adsfas";
+console.log(copy);
+console.log(shallocopy);
+
+let deepcopy = JSON.parse(JSON.stringify(shallocopy));
+deepcopy.key3.key = 121234;
+console.log(deepcopy);
+console.log(shallocopy);
+
+//How to lock a object property is js
+let user = {
+  name: "akash",
+  email: "test@gmail.com"
+};
+// Object.defineProperty(user,email,{writable:true})
+
+//Faltten Neasted Arrays is js
+
+function FalttenArrays(arr) {
+  let f = [];
+  arr.forEach(e => {
+    if (Array.isArray(e) === true) {
+      f = f.concat(FalttenArrays(e));
+    } else {
+      f.push(e);
+    }
+  });
+  return f;
+}
+
+console.log(FalttenArrays([1, 2, 3, [1, 4, 2], 12]));
+let falttenArr = [1, 2, 3, [[1, 2, 4], 3], [1, 2, 4]];
+console.log(falttenArr.flat(Infinity));
+
+function RotateArr(arr, k) {
+  let orignl = arr;
+  let karr = arr.slice(k);
+  console.log(karr);
+  console.log(orignl.slice(k).concat(arr));
+}
+
+RotateArr([1, 2, 4, 32, 4], 2);
+
+//what is call back function
+
+function addTwo(a, b) {
+  return a + b;
+}
+function displayresults(a, b, callFunc) {
+  let result = callFunc(a, b);
+  return result;
+}
+
+console.log(displayresults(4, 6, addTwo));
+
+//Certainly! Below is an implementation of a custom map function for arrays using prototypes in JavaScript:
+
+Array.prototype.customMap = function(callback) {
+  let mappedArray = [];
+  for (let i = 0; i < this.length; i++) {
+    mappedArray.push(callback(this[i],i,this))
+  }
+  return mappedArray;
+};
+
+Array.prototype.customFilter = function(callback) {
+
+    let filteredArray = [];
+
+    for(let i = 0; i < this.length;i++){
+      if(callback(this[i],i,this)){
+        filteredArray.push(this[i])
+      }
+    }
+
+}
