@@ -401,19 +401,151 @@ console.log(displayresults(4, 6, addTwo));
 Array.prototype.customMap = function(callback) {
   let mappedArray = [];
   for (let i = 0; i < this.length; i++) {
-    mappedArray.push(callback(this[i],i,this))
+    mappedArray.push(callback(this[i], i, this));
   }
   return mappedArray;
 };
 
 Array.prototype.customFilter = function(callback) {
+  let filteredArray = [];
 
-    let filteredArray = [];
-
-    for(let i = 0; i < this.length;i++){
-      if(callback(this[i],i,this)){
-        filteredArray.push(this[i])
-      }
+  for (let i = 0; i < this.length; i++) {
+    if (callback(this[i], i, this)) {
+      filteredArray.push(this[i]);
     }
+  }
+};
 
+// Write a function that return the reverse of a string?
+function reverseString(string) {
+  let reversed = "";
+
+  for (let i = string.length - 1; i >= 0; i--) {
+    reversed += string[i];
+  }
+  return reversed;
+}
+
+function reverseString2(string) {
+  return string.split("").reverse().join("");
+}
+
+console.log(reverseString("akash"));
+console.log(reverseString2("akash"));
+
+//Write a function that return the longest word in the sentence.
+
+function findLongestWord(sentence) {
+  const words = sentence.split(" ");
+  let longestWord = "";
+
+  // for(let word of words) {
+  //   if (word.length > longestWord.length) {
+  //     longestWord = word;
+  //   }
+  // }
+  words.forEach((word)=>{
+    if(word.length > longestWord.length){
+      longestWord = word;
+    }
+  })
+  return longestWord
+}
+
+
+console.log(findLongestWord("I love coding in javascript"))
+
+//write a function that checks whether a given string is palindrome or not?
+
+function isPalindrome(str){
+  const reversed = str.split("").reverse().join("")
+  return str === reversed
+}
+
+console.log(isPalindrome('lool'))
+
+
+// Write a function to remove duplicates elements from an array
+
+function removeDuplicates(arr){
+  const uniqueElements = [];
+
+  for(let i = 0; i < arr.length; i++){
+    if(uniqueElements.indexOf(arr[i]) === -1)
+    {
+      uniqueElements.push(arr[i]);
+    }
+  }
+  return uniqueElements
+}
+
+console.log(removeDuplicates([1,2,1,2,14,53,1,2,3]))
+
+function removeDuplicates2(arr){
+  return [...new Set(arr)]
+}
+console.log(removeDuplicates2([1,2,1,2,14,53,1,2,3]))
+
+
+// Write a function that checks whether two string are anagrams or not
+
+function anagramsString(str1, str2){
+    let strValue1 = str1.sort();
+    let strValue2 = str2.sort();
+    return strValue1 === strValue2
+}
+
+console.log(anagramsFunction("tea","eat"))
+
+// write a function that return the number of vowels in a string
+
+function countVowels(str){
+  let vowelsArr = ['a','e','i','o','u'];
+  let count = 0;
+  for(let char of str.toLowerCase()) {
+    if(vowelsArr.includes(char)){
+      count++
+    }
+  }
+  return count
+}
+console.log(countVowels("hello world"))
+
+function findLargestNumber(arr){
+  let largestNumber = arr[i]
+  for(let i = 1; i< arr.length;i++){
+    if(arr[i] > largestNumber){
+        largestNumber = arr[i]
+    }
+  }
+
+  return largestNumber
+
+}
+
+// Write a function to check if a given number is prime or not
+
+function isPrime(number){
+
+  for(let i = 2; i <= number/2 ; i++){
+    if(number % i === 0){
+      return false
+    }
+  }
+  return true;
+}
+console.log(isPrime(10))
+
+// write a function to calculate the factorial of a number.
+
+function factorial(number){
+  if(num === 0){
+    return 1
+  }
+
+  let factorial = 1;
+  for(let i = 1; i <= num; i++){
+    factorial *= i
+  }
+  return factorial 
 }
