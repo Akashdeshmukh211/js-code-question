@@ -5,7 +5,7 @@ console.log("hello world");
 let sentence = "Hello world";
 
 function sentenceReverse(srt) {
-  let array = srt.split(" ").map(function(word) {
+  let array = srt.split(" ").map(function (word) {
     return word.split("").reverse().join("");
   });
   return array.join(" ");
@@ -109,7 +109,7 @@ console.log(returnTypeOf(true));
 
 function checkOccurrences(str) {
   let obj = {};
-  str.split("").forEach(function(e) {
+  str.split("").forEach(function (e) {
     if (obj.hasOwnProperty(e) === false) {
       obj[e] = 1;
     } else {
@@ -124,7 +124,7 @@ console.log(checkOccurrences("akash"));
 
 function arraySum(arr) {
   let sum = 0;
-  arr.forEach(function(e) {
+  arr.forEach(function (e) {
     sum = sum + e;
   });
   return sum;
@@ -135,7 +135,7 @@ console.log(arraySum([2, 5, 4, 32]));
 // 13. Loop an array with string and add all number of it
 function arraySum2(arr) {
   let sum = 0;
-  arr.forEach(function(e) {
+  arr.forEach(function (e) {
     if (typeof e === "number") {
       sum = sum + e;
     }
@@ -318,7 +318,7 @@ function createObject(name, email) {
   return {
     name: name,
     email: email,
-    greet: function() {
+    greet: function () {
       return this.name;
     }
   };
@@ -398,7 +398,7 @@ console.log(displayresults(4, 6, addTwo));
 
 //Certainly! Below is an implementation of a custom map function for arrays using prototypes in JavaScript:
 
-Array.prototype.customMap = function(callback) {
+Array.prototype.customMap = function (callback) {
   let mappedArray = [];
   for (let i = 0; i < this.length; i++) {
     mappedArray.push(callback(this[i], i, this));
@@ -406,7 +406,7 @@ Array.prototype.customMap = function(callback) {
   return mappedArray;
 };
 
-Array.prototype.customFilter = function(callback) {
+Array.prototype.customFilter = function (callback) {
   let filteredArray = [];
 
   for (let i = 0; i < this.length; i++) {
@@ -444,8 +444,8 @@ function findLongestWord(sentence) {
   //     longestWord = word;
   //   }
   // }
-  words.forEach((word)=>{
-    if(word.length > longestWord.length){
+  words.forEach((word) => {
+    if (word.length > longestWord.length) {
       longestWord = word;
     }
   })
@@ -457,7 +457,7 @@ console.log(findLongestWord("I love coding in javascript"))
 
 //write a function that checks whether a given string is palindrome or not?
 
-function isPalindrome(str){
+function isPalindrome(str) {
   const reversed = str.split("").reverse().join("")
   return str === reversed
 }
@@ -467,43 +467,42 @@ console.log(isPalindrome('lool'))
 
 // Write a function to remove duplicates elements from an array
 
-function removeDuplicates(arr){
+function removeDuplicates(arr) {
   const uniqueElements = [];
 
-  for(let i = 0; i < arr.length; i++){
-    if(uniqueElements.indexOf(arr[i]) === -1)
-    {
+  for (let i = 0; i < arr.length; i++) {
+    if (uniqueElements.indexOf(arr[i]) === -1) {
       uniqueElements.push(arr[i]);
     }
   }
   return uniqueElements
 }
 
-console.log(removeDuplicates([1,2,1,2,14,53,1,2,3]))
+console.log(removeDuplicates([1, 2, 1, 2, 14, 53, 1, 2, 3]))
 
-function removeDuplicates2(arr){
+function removeDuplicates2(arr) {
   return [...new Set(arr)]
 }
-console.log(removeDuplicates2([1,2,1,2,14,53,1,2,3]))
+console.log(removeDuplicates2([1, 2, 1, 2, 14, 53, 1, 2, 3]))
 
 
 // Write a function that checks whether two string are anagrams or not
 
-function anagramsString(str1, str2){
-    let strValue1 = str1.sort();
-    let strValue2 = str2.sort();
-    return strValue1 === strValue2
+function anagramsString(str1, str2) {
+  let strValue1 = str1.sort();
+  let strValue2 = str2.sort();
+  return strValue1 === strValue2
 }
 
-console.log(anagramsFunction("tea","eat"))
+console.log(anagramsFunction("tea", "eat"))
 
 // write a function that return the number of vowels in a string
 
-function countVowels(str){
-  let vowelsArr = ['a','e','i','o','u'];
+function countVowels(str) {
+  let vowelsArr = ['a', 'e', 'i', 'o', 'u'];
   let count = 0;
-  for(let char of str.toLowerCase()) {
-    if(vowelsArr.includes(char)){
+  for (let char of str.toLowerCase()) {
+    if (vowelsArr.includes(char)) {
       count++
     }
   }
@@ -511,11 +510,11 @@ function countVowels(str){
 }
 console.log(countVowels("hello world"))
 
-function findLargestNumber(arr){
+function findLargestNumber(arr) {
   let largestNumber = arr[i]
-  for(let i = 1; i< arr.length;i++){
-    if(arr[i] > largestNumber){
-        largestNumber = arr[i]
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > largestNumber) {
+      largestNumber = arr[i]
     }
   }
 
@@ -525,10 +524,10 @@ function findLargestNumber(arr){
 
 // Write a function to check if a given number is prime or not
 
-function isPrime(number){
+function isPrime(number) {
 
-  for(let i = 2; i <= number/2 ; i++){
-    if(number % i === 0){
+  for (let i = 2; i <= number / 2; i++) {
+    if (number % i === 0) {
       return false
     }
   }
@@ -538,14 +537,99 @@ console.log(isPrime(10))
 
 // write a function to calculate the factorial of a number.
 
-function factorial(number){
-  if(num === 0){
+function factorial(number) {
+  if (num === 0) {
     return 1
   }
 
   let factorial = 1;
-  for(let i = 1; i <= num; i++){
+  for (let i = 1; i <= num; i++) {
     factorial *= i
   }
-  return factorial 
+  return factorial
+}
+//Problem statemet : given a positive number 'num',
+//  find it binary equvalent using recursion
+// 
+function binaryEquvalent(num) {
+  if (num === 0 || num === 1) {
+    return String(num)
+  }
+
+  return binaryEquvalent(Math.floor(num / 2)) + String(num % 2);
+}
+console.log(binaryEquvalent(2))
+
+function binarySearch(arr, searchValue, low = 0, high = arr.length - 1) {
+
+  if (high < low || arr.length === 0) return -1
+
+  const mid = low + Math.floor((high - low) / 2)
+  console.log(mid, "mid")
+
+  if (arr[mid] === searchValue) {
+    return mid
+  }
+
+  if (arr[mid] > searchValue) {
+    return binarySearch(arr, searchValue, low, mid - 1)
+  }
+  console.log(arr)
+  return binarySearch(arr, searchValue, mid + 1, high)
+}
+
+console.log(binarySearch([1, 2, 3, 4, 5], 5))
+
+
+//Calculates GCD of two numbers using euclidean recursive algorithm
+
+function gcd(num, num2) {
+  if (num2 === 0) {
+    return num
+  } else {
+    return gcd(num2, num % num2)
+  }
+}
+console.log(gcd(48, 12))
+
+function gcd2(f, s) {
+  while (s !== 0) {
+    const temp = s;
+    s = f % s;
+    f = temp
+  }
+  return f
+}
+console.log(gcd2(48, 12))
+
+
+// find factoial using recuursion
+function factoial(n) {
+  if (!Number.isInteger(n) || n < 0) {
+    throw new RangeError("Input should be a non-negative whole number")
+  }
+  if (n === 0) {
+    return 1
+  }
+
+  return n * factoial(n - 1)
+
+}
+
+
+// Fibonacci function to return the n-th fibonacci number
+
+function fibonacciSeries(n) {
+  if (n < 2) {
+    return n
+  }
+  return fibonacciSeries(n - 2) + fibonacciSeries(n - 1)
+}
+console.log(fibonacciSeries(25))
+
+function ReverseArray() {
+  for (let i = 0; j = arr.length - 1;
+    i < (anagramsFunction.length / 2); i++ j-- ) {
+
+  }
 }
